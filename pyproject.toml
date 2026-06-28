@@ -1,0 +1,29 @@
+[build-system]
+requires      = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name            = "bignote-gpt"
+version         = "0.1.0"
+description     = "A beginner-friendly generative AI harness."
+authors         = [{ name = "Jeff Lafitte" }]
+license         = "MIT"
+requires-python = ">=3.11"
+dependencies    = [ "numpy", "tomlkit", "torch" ]
+readme          = "README.md"
+
+[project.optional-dependencies]
+tensorboard = ["tensorboard"]
+
+[project.scripts]
+bignote-gpt = "bignote_gpt.__main__:_main"
+
+[tool.setuptools.packages.find]
+include = ["bignote_gpt*"]
+
+[tool.pylint.messages_control]
+disable = [ "redefined-builtin" ]
+
+[tool.mypy]
+python_version         = "3.11"
+ignore_missing_imports = true
